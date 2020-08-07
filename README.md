@@ -36,4 +36,7 @@ export HAMLET_REPO_BRANCH="<branch>"
 
 # define specific clone depth
 export HAMLET_REPO_DEPTH="<depth>"
+
+# define alternate clone root dir
+export HAMLET_CLONE_ROOT="<path-to-dir>"
 ```

@@ -2,31 +2,31 @@
     "Repositories" :[
         {
             "Repository" : "https://github.com/hamlet-io/executor-python.git",
-            "Directory" : "./hamlet/cli"
+            "Directory" : "cli"
         },
         {
             "Repository" : "https://github.com/hamlet-io/executor-bash.git",
-            "Directory" : "./hamlet/executor"
+            "Directory" : "executor"
         },
         {
             "Repository" : "https://github.com/hamlet-io/cloudinit-aws.git",
-            "Directory" : "./hamlet/startup"
+            "Directory" : "startup"
         },
         {
             "Repository" : "https://github.com/hamlet-io/executor-cookiecutter.git",
-            "Directory" : "./hamlet/patterns"
+            "Directory" : "patterns"
         },
         {
             "Repository" : "https://github.com/hamlet-io/engine.git",
-            "Directory" : "./hamlet/engine/core"
+            "Directory" : "engine/core"
         },
         {
             "Repository" : "https://github.com/hamlet-io/engine-plugin-azure.git",
-            "Directory" : "./hamlet/engine/plugins/azure"
+            "Directory" : "engine/plugins/azure"
         },
         {
             "Repository" : "https://github.com/hamlet-io/engine-plugin-aws.git",
-            "Directory" : "./hamlet/engine/plugins/aws"
+            "Directory" : "engine/plugins/aws"
         }
     ]
 }
