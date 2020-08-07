@@ -1,32 +1,52 @@
 {
     "Repositories" :[
         {
+            "Id" : "CLI",
             "Repository" : "https://github.com/hamlet-io/executor-python.git",
-            "Directory" : "cli"
+            "Directory" : "cli",
+            "Clone" : true
         },
         {
+            "Id" : "EXECUTOR",
             "Repository" : "https://github.com/hamlet-io/executor-bash.git",
-            "Directory" : "executor"
+            "Directory" : "executor",
+            "Clone" : true
         },
         {
+            "Id" : "STARTUP",
             "Repository" : "https://github.com/hamlet-io/cloudinit-aws.git",
-            "Directory" : "startup"
+            "Directory" : "startup",
+            "Clone" : true
         },
         {
+            "Id" : "PATTERNS",
             "Repository" : "https://github.com/hamlet-io/executor-cookiecutter.git",
-            "Directory" : "patterns"
+            "Directory" : "patterns",
+            "Clone" : true
         },
         {
+            "Id" : "ENGINE",
             "Repository" : "https://github.com/hamlet-io/engine.git",
-            "Directory" : "engine/core"
+            "Directory" : "engine/core",
+            "Clone" : true
         },
         {
+            "Id" : "AZURE",
             "Repository" : "https://github.com/hamlet-io/engine-plugin-azure.git",
-            "Directory" : "engine/plugins/azure"
+            "Directory" : "engine/plugins/azure",
+            "Clone" : true
         },
         {
+            "Id" : "AWS",
             "Repository" : "https://github.com/hamlet-io/engine-plugin-aws.git",
-            "Directory" : "engine/plugins/aws"
+            "Directory" : "engine/plugins/aws",
+            "Clone" : true
+        },
+        {
+            "Id" : "BOOTSTRAP",
+            "Repository" : "https://github.com/hamlet-io/hamlet-bootstrap.git",
+            "Directory" : "bootstrap",
+            "Clone" : false
         }
     ]
 }

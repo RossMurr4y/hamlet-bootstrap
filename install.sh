@@ -1,19 +1,26 @@
 #!/usr/bin/env bash
 
-if [[ ! -d ./hamlet ]]; then
+HAMLET_CLONE_ROOT_DEFAULT="/opt/hamlet"
+HAMLET_REPO_CFG_DEFAULT="https://raw.githubusercontent.com/hamlet-io/hamlet-bootstrap/master/config.json"
+HAMLET_REPO_BRANCH_DEFAULT="master"
+HAMLET_REPO_DEPTH_DEFAULT=1
+export HAMLET_CLONE_ROOT="${HAMLET_CLONE_ROOT:-$HAMLET_CLONE_ROOT_DEFAULT}"
 
-    # defaults
-    HAMLET_CLONE_ROOT_DEFAULT="/opt/hamlet"
-    HAMLET_REPO_CFG_DEFAULT="https://raw.githubusercontent.com/hamlet-io/hamlet-bootstrap/master/config.json"
-    HAMLET_REPO_BRANCH_DEFAULT="master"
-    HAMLET_REPO_DEPTH_DEFAULT=1
+if [[ ! -d "${HAMLET_CLONE_ROOT}" ]]; then
+    # set branches
+    export HAMLET_REPO_CLI_BRANCH="${HAMLET_REPO_CLI_BRANCH:-$HAMLET_REPO_BRANCH_DEFAULT}"
+    export HAMLET_REPO_EXECUTOR_BRANCH="${HAMLET_REPO_EXECUTOR_BRANCH:-$HAMLET_REPO_BRANCH_DEFAULT}"
+    export HAMLET_REPO_STARTUP_BRANCH="${HAMLET_REPO_STARTUP_BRANCH:-$HAMLET_REPO_BRANCH_DEFAULT}"
+    export HAMLET_REPO_PATTERNS_BRANCH="${HAMLET_REPO_PATTERNS_BRANCH:-$HAMLET_REPO_BRANCH_DEFAULT}"
+    export HAMLET_REPO_ENGINE_BRANCH="${HAMLET_REPO_ENGINE_BRANCH:-$HAMLET_REPO_BRANCH_DEFAULT}"
+    export HAMLET_REPO_AZURE_BRANCH="${HAMLET_REPO_AZURE_BRANCH:-$HAMLET_REPO_BRANCH_DEFAULT}"
+    export HAMLET_REPO_AWS_BRANCH="${HAMLET_REPO_AWS_BRANCH:-$HAMLET_REPO_BRANCH_DEFAULT}"
+    export HAMLET_REPO_BOOTSTRAP_BRANCH="${HAMLET_REPO_BOOTSTRAP_BRANCH:-$HAMLET_REPO_BRANCH_DEFAULT}"
 
     export HAMLET_REPO_CFG="${HAMLET_REPO_CFG:-$HAMLET_REPO_CFG_DEFAULT}"
-    export HAMLET_REPO_BRANCH="${HAMLET_REPO_BRANCH:-$HAMLET_REPO_BRANCH_DEFAULT}"
     export HAMLET_REPO_DEPTH=${HAMLET_REPO_DEPTH:-$HAMLET_REPO_DEPTH_DEFAULT}
-    export HAMLET_CLONE_ROOT="${HAMLET_CLONE_ROOT:-$HAMLET_CLONE_ROOT_DEFAULT}"
 
-    echo $(curl -L "${HAMLET_REPO_CFG}") | jq  -r '.Repositories[] | "git clone --depth \(env.HAMLET_REPO_DEPTH) --branch \(env.HAMLET_REPO_BRANCH) \(.Repository) \(env.HAMLET_CLONE_ROOT)/\(.Directory)" ' | bash
+    curl -L "${HAMLET_REPO_CFG}" | jq -r '.Repositories[] | "export BRANCH=HAMLET_REPO_\(.Id)_BRANCH; \(.Clone) && git clone --depth \(env.HAMLET_REPO_DEPTH) --branch ${!BRANCH} \(.Repository) \(env.HAMLET_CLONE_ROOT)/\(.Directory)" ' | bash
 else
     echo "Hamlet directory already exist."
 fi
