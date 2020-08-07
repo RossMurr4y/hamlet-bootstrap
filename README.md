@@ -29,14 +29,18 @@ Set the following environment variables prior to to executing the above command 
 
 ```bash
 # define custom configuration file
+# default: https://raw.githubusercontent.com/hamlet-io/hamlet-bootstrap/master/config.json
 export HAMLET_REPO_CFG="<path-to-file>"
 
 # define alternate branch
+# default: master
 export HAMLET_REPO_BRANCH="<branch>"
 
 # define specific clone depth
+# default: 1
 export HAMLET_REPO_DEPTH="<depth>"
 
 # define alternate clone root dir
+# default: /opt/hamlet
 export HAMLET_CLONE_ROOT="<path-to-dir>"
 ```
