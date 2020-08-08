@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-HAMLET_CLONE_ROOT_DEFAULT="/opt/hamlet"
+HAMLET_CLONE_ROOT_DEFAULT="$(pwd)/hamlet"
 HAMLET_REPO_CFG_DEFAULT="https://raw.githubusercontent.com/hamlet-io/hamlet-bootstrap/master/config.json"
 HAMLET_REPO_BRANCH_DEFAULT="master"
 HAMLET_REPO_DEPTH_DEFAULT=1
