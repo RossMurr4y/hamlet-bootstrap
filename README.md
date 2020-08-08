@@ -1,19 +1,49 @@
-# Hamlet Bootstrap Script
+# Bootstrap
 
-Bootstrap script for Hamlet
+This repository contains two scripts - `install` and `setenv`
 
-https://hamlet.io
+# Requirements
 
-## Requirements
-
-Requires `curl` and `jq`
+Both scripts require `curl` and `jq`
 
 * [curl](https://curl.haxx.se/)
 * [jq](https://stedolan.github.io/jq/)
 
 Prerequisites are already met in the [official Hamlet container](https://hub.docker.com/r/hamletio/hamlet).
 
-## Usage
+# Configuration
+
+Both scripts use a common JSON configuration structure. The default configuration is stored alongside the scripts, but a path to an alternative configuration file can be provided.
+
+`export HAMLET_REPO_CFG="<path-to-custom-configuration-file>"`
+
+```json
+{
+    "Repositories" :[
+        {
+            "Id" : "<identifier>",
+            "Repository" : "<url>",
+            "Directory" : "<path-from-clone-root>",
+            "Clone" : true
+        }
+    ],
+    "EnvProfiles" : [
+        {
+            "Name" : "default",
+            "Environment" : {
+                "ENV_VAR" : "<value>"
+            }
+        }
+    ]
+}
+```
+
+# install.sh
+
+Bootstrap a series of repositories into a specific structure.
+Intended for use within [Hamlet](https://hamlet.io).
+
+### Usage
 
 Bootstrap Hamlet with the following command from a bash terminal. 
 
@@ -23,7 +53,7 @@ Bootstrap Hamlet with the following command from a bash terminal.
 curl -L https://raw.githubusercontent.com/hamlet-io/hamlet-bootstrap/master/install.sh | bash
 ```
 
-## Custom Arguments
+### Custom Arguments
 
 Set the following environment variables prior to to executing the above command to modify behaviour.
 
@@ -47,21 +77,21 @@ export HAMLET_REPO_DEPTH="<depth>"
 export HAMLET_CLONE_ROOT="<path-to-dir>"
 ```
 
-## Custom config.json
+# setenv.sh
 
-To define your own repositories to clone, define a configuration file in the following structure.
+Inject environment variables into the current shell from an existing config definition.
 
-`export HAMLET_REPO_CFG="<path-to-custom-configuration-file>"`
+### Usage 
 
-```json
-{
-    "Repositories" :[
-        {
-            "Id" : "<identifier>",
-            "Repository" : "<url>",
-            "Directory" : "<path-from-clone-root>",
-            "Clone" : true
-        }
-    ]
-}
+> Warning: the following command will download and install files from GitHub. Only run scripts you trust.
+
+```bash
+# set path to an alternate configuration
+export HAMLET_REPO_CFG="<path-to-custom-configuration-file>"
+
+# use alternate EnvProfile
+export HAMLET_CFG_ENV_PROFILE="<alternate-envprofile-name>"
+
+# inject HAMLET_CFG_ENV_PROFILE into current shell
+eval $(curl -L https://raw.githubusercontent.com/hamlet-io/hamlet-bootstrap/master/setenv.sh | bash)
 ```
