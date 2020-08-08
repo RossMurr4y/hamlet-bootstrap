@@ -48,5 +48,21 @@
             "Directory" : "bootstrap",
             "Clone" : false
         }
+    ],
+    "EnvProfiles" : [
+        {
+            "Name" : "default",
+            "Environment" : {
+                "HAMLET_CLONE_ROOT" : "/opt/hamlet",
+                "AUTOMATION_BASE_DIR" : "/opt/hamlet/executor/automation",
+                "AUTOMATION_DIR" : "/opt/hamlet/executor/automation/jenkins/aws",
+                "GENERATION_BASE_DIR" : "/opt/hamlet/executor",
+                "GENERATION_DIR" : "/opt/hamlet/executor/cli",
+                "GENERATION_ENGINE_DIR" : "/opt/hamlet/engine/core",
+                "GENERATION_PLUGIN_DIRS" : "/opt/hamlet/engine/plugins/aws;/opt/hamlet/engine/plugins/azure",
+                "GENERATION_STARTUP_DIR" : "/opt/hamlet/startup",
+                "GENERATION_PATTERNS_DIR" : "/opt/hamlet/patterns"   
+            }
+        }
     ]
 }
