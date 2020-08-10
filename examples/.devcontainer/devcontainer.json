@@ -9,6 +9,8 @@
 		"terminal.integrated.shell.linux": "/bin/bash"
 	},
     "containerEnv": {
+        "HAMLET_REPO_CFG" : "https://github.com/hamlet-io/hamlet-bootstrap/blob/feat-devcontainer-ex/examples/.devcontainer/config.json",
+        "HAMLET_CLONE_ROOT" : "/home/hamlet/cmdb/hamlet",
         "HAMLET_CFG_ENV_PROFILE" : "development"
     },
 	"remoteUser": "hamlet",

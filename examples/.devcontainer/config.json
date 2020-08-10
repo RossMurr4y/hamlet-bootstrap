@@ -67,7 +67,6 @@
         {
             "Name" : "development",
             "Environment" : {
-                "HAMLET_CLONE_ROOT" : "/home/hamlet/cmdb/hamlet",
                 "AUTOMATION_BASE_DIR" : "executor/automation",
                 "AUTOMATION_DIR" : "executor/automation/jenkins/aws",
                 "GENERATION_BASE_DIR" : "executor",
