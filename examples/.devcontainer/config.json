@@ -1,0 +1,82 @@
+{
+    "Repositories" :[
+        {
+            "Id" : "CLI",
+            "Repository" : "https://github.com/hamlet-io/executor-python.git",
+            "Directory" : "cli",
+            "Clone" : true
+        },
+        {
+            "Id" : "EXECUTOR",
+            "Repository" : "https://github.com/hamlet-io/executor-bash.git",
+            "Directory" : "executor",
+            "Clone" : true
+        },
+        {
+            "Id" : "STARTUP",
+            "Repository" : "https://github.com/hamlet-io/cloudinit-aws.git",
+            "Directory" : "startup",
+            "Clone" : true
+        },
+        {
+            "Id" : "PATTERNS",
+            "Repository" : "https://github.com/hamlet-io/executor-cookiecutter.git",
+            "Directory" : "patterns",
+            "Clone" : true
+        },
+        {
+            "Id" : "ENGINE",
+            "Repository" : "https://github.com/hamlet-io/engine.git",
+            "Directory" : "engine/core",
+            "Clone" : true
+        },
+        {
+            "Id" : "AZURE",
+            "Repository" : "https://github.com/hamlet-io/engine-plugin-azure.git",
+            "Directory" : "engine/plugins/azure",
+            "Clone" : true
+        },
+        {
+            "Id" : "AWS",
+            "Repository" : "https://github.com/hamlet-io/engine-plugin-aws.git",
+            "Directory" : "engine/plugins/aws",
+            "Clone" : true
+        },
+        {
+            "Id" : "BOOTSTRAP",
+            "Repository" : "https://github.com/hamlet-io/hamlet-bootstrap.git",
+            "Directory" : "bootstrap",
+            "Clone" : false
+        }
+    ],
+    "EnvProfiles" : [
+        {
+            "Name" : "default",
+            "Environment" : {
+                "HAMLET_CLONE_ROOT" : "/opt/hamlet",
+                "AUTOMATION_BASE_DIR" : "/opt/hamlet/executor/automation",
+                "AUTOMATION_DIR" : "/opt/hamlet/executor/automation/jenkins/aws",
+                "GENERATION_BASE_DIR" : "/opt/hamlet/executor",
+                "GENERATION_DIR" : "/opt/hamlet/executor/cli",
+                "GENERATION_ENGINE_DIR" : "/opt/hamlet/engine/core",
+                "GENERATION_PLUGIN_DIRS" : "/opt/hamlet/engine/plugins/aws;/opt/hamlet/engine/plugins/azure",
+                "GENERATION_STARTUP_DIR" : "/opt/hamlet/startup",
+                "GENERATION_PATTERNS_DIR" : "/opt/hamlet/patterns"   
+            }
+        },
+        {
+            "Name" : "development",
+            "Environment" : {
+                "HAMLET_CLONE_ROOT" : "/home/hamlet/cmdb/hamlet",
+                "AUTOMATION_BASE_DIR" : "executor/automation",
+                "AUTOMATION_DIR" : "executor/automation/jenkins/aws",
+                "GENERATION_BASE_DIR" : "executor",
+                "GENERATION_DIR" : "executor/cli",
+                "GENERATION_ENGINE_DIR" : "engine/core",
+                "GENERATION_PLUGIN_DIRS" : "engine/plugins/aws;/opt/hamlet/engine/plugins/azure",
+                "GENERATION_STARTUP_DIR" : "startup",
+                "GENERATION_PATTERNS_DIR" : "patterns"   
+            }
+        }
+    ]
+}
