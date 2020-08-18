@@ -15,7 +15,7 @@ Either clone down or copy/paste the example files into a clean directory.
 
 ```bash
 .
-└── .devcontainer
+└── devcontainer
     ├── config.json
     └── devcontainer.json
 ```
