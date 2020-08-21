@@ -1,0 +1,21 @@
+{
+	"name": "Hamlet",
+	"image": "hamletio/hamlet:latest",
+    "workspaceMount": "source=hamlet_workspace,target=/home/hamlet/cmdb/,type=volume",
+    "postCreateCommand": "eval $(curl -L https://raw.githubusercontent.com/hamlet-io/hamlet-bootstrap/master/setenv.sh | bash) && curl -L https://raw.githubusercontent.com/hamlet-io/hamlet-bootstrap/master/install.sh | bash",
+	"workspaceFolder": "/home/hamlet/cmdb",
+	"mounts": [],
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash"
+	},
+    "containerEnv": {
+        "HAMLET_REPO_CFG" : "https://github.com/hamlet-io/hamlet-bootstrap/blob/feat-devcontainer-ex/examples/devcontainer/config.json",
+        "HAMLET_CLONE_ROOT" : "/home/hamlet/cmdb/hamlet",
+        "HAMLET_CFG_ENV_PROFILE" : "development"
+    },
+	"remoteUser": "hamlet",
+	"containerUser" : "hamlet",
+	"extensions": [
+		"dcortes92.freemarker"
+	]
+}
