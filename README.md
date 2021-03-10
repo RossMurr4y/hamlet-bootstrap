@@ -1,21 +1,24 @@
-# Bootstrap
+## Hamlet Deploy - Bootstrap 
 
-This repository contains two scripts - `install` and `setenv`
+This repository contains a number of bash scripts used for fast installation and configuration of the parts of Hamlet Deploy.
 
-# Requirements
+See https://docs.hamlet.io for more info on Hamlet Deploy
 
-Both scripts require `curl` and `jq`
+### Installation
 
-* [curl](https://curl.haxx.se/)
-* [jq](https://stedolan.github.io/jq/)
+The scripts in Bootstrap are typically invoked directly from their hosted location in GitHub, and such use does not require any installation.
 
-Prerequisites are already met in the [official Hamlet container](https://hub.docker.com/r/hamletio/hamlet).
+### Configuration
 
-# Configuration
+Bootstrap comes with a standard configuration found in `./config.json`. This will install Hamlet Deploy as it is found within the official Docker container.
 
-Both scripts use a common JSON configuration structure. The default configuration is stored alongside the scripts, but a path to an alternative configuration file can be provided.
+An alternative `config.json` can be provided by setting the following Environment Variable:
 
-`export HAMLET_REPO_CFG="<path-to-custom-configuration-file>"`
+```bash
+export HAMLET_REPO_CFG="<path-to-custom-configuration-file>"
+```
+
+The structure of the config file is as follows:
 
 ```json
 {
@@ -38,12 +41,36 @@ Both scripts use a common JSON configuration structure. The default configuratio
 }
 ```
 
-# install.sh
+### Update
+
+To manually perform an update of Bootstrap, simply pull down the latest changes with git.
+
+```bash
+cd /path/to/bootstrap
+git pull
+```
+
+> **Note:** this updates Bootstrap only, not the repositories within the config file.
+
+### Usage
+
+Bootstrap contains two primary scripts - `install` and `setenv`. Both are configured together as outlined above.
+
+#### Requirements
+
+Both scripts require `curl` and `jq`
+
+* [curl](https://curl.haxx.se/)
+* [jq](https://stedolan.github.io/jq/)
+
+Prerequisites are already met in the [official Hamlet container](https://hub.docker.com/r/hamletio/hamlet).
+
+#### **install.sh**
 
 Bootstrap a series of repositories into a specific structure.
 Intended for use within [Hamlet](https://hamlet.io).
 
-### Usage
+##### Usage
 
 Bootstrap Hamlet with the following command from a bash terminal. 
 
@@ -53,7 +80,7 @@ Bootstrap Hamlet with the following command from a bash terminal.
 curl -L https://raw.githubusercontent.com/hamlet-io/hamlet-bootstrap/master/install.sh | bash
 ```
 
-### Custom Arguments
+##### Custom Arguments
 
 Set the following environment variables prior to to executing the above command to modify behaviour.
 
@@ -77,11 +104,11 @@ export HAMLET_REPO_DEPTH="<depth>"
 export HAMLET_CLONE_ROOT="<path-to-dir>"
 ```
 
-# setenv.sh
+#### **setenv.sh**
 
 Inject environment variables into the current shell from an existing config definition.
 
-### Usage 
+##### Usage 
 
 > Warning: the following command will download and install files from GitHub. Only run scripts you trust.
 
