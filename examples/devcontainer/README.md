@@ -2,14 +2,13 @@
 
 This is an example configuration a VS Code devcontainer for use in Hamlet development. See [hamlet.io](https://hamlet.io) for more information.
 
-# Prerequisites
+## Prerequisites
 
 * [VS Code](https://code.visualstudio.com/download)
-    * [Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack): `ms-vscode-remote.vscode-remote-extensionpack`
+  * [Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack): `ms-vscode-remote.vscode-remote-extensionpack`
 * [Docker](https://docs.docker.com/get-docker/)
 
-
-# Usage
+## Usage
 
 Either clone down or copy/paste the example files into a clean directory.
 

@@ -13,12 +13,6 @@
             "Clone" : true
         },
         {
-            "Id" : "STARTUP",
-            "Repository" : "https://github.com/hamlet-io/cloudinit-aws.git",
-            "Directory" : "startup",
-            "Clone" : true
-        },
-        {
             "Id" : "PATTERNS",
             "Repository" : "https://github.com/hamlet-io/executor-cookiecutter.git",
             "Directory" : "patterns",
@@ -60,8 +54,7 @@
                 "GENERATION_DIR" : "/opt/hamlet/executor/cli",
                 "GENERATION_ENGINE_DIR" : "/opt/hamlet/engine/core",
                 "GENERATION_PLUGIN_DIRS" : "/opt/hamlet/engine/plugins/aws;/opt/hamlet/engine/plugins/azure",
-                "GENERATION_STARTUP_DIR" : "/opt/hamlet/startup",
-                "GENERATION_PATTERNS_DIR" : "/opt/hamlet/patterns"   
+                "GENERATION_PATTERNS_DIR" : "/opt/hamlet/patterns"
             }
         }
     ]
