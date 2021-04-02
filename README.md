@@ -1,14 +1,14 @@
-## Hamlet Deploy - Bootstrap 
+# Hamlet Deploy - Bootstrap
 
 This repository contains a number of bash scripts used for fast installation and configuration of the parts of Hamlet Deploy.
 
 See https://docs.hamlet.io for more info on Hamlet Deploy
 
-### Installation
+## Installation
 
 The scripts in Bootstrap are typically invoked directly from their hosted location in GitHub, and such use does not require any installation.
 
-### Configuration
+## Configuration
 
 Bootstrap comes with a standard configuration found in `./config.json`. This will install Hamlet Deploy as it is found within the official Docker container.
 
@@ -41,7 +41,7 @@ The structure of the config file is as follows:
 }
 ```
 
-### Update
+## Update
 
 To manually perform an update of Bootstrap, simply pull down the latest changes with git.
 
@@ -52,11 +52,11 @@ git pull
 
 > **Note:** this updates Bootstrap only, not the repositories within the config file.
 
-### Usage
+## Usage
 
 Bootstrap contains two primary scripts - `install` and `setenv`. Both are configured together as outlined above.
 
-#### Requirements
+### Requirements
 
 Both scripts require `curl` and `jq`
 
@@ -65,14 +65,14 @@ Both scripts require `curl` and `jq`
 
 Prerequisites are already met in the [official Hamlet container](https://hub.docker.com/r/hamletio/hamlet).
 
-#### **install.sh**
+### **install.sh**
 
 Bootstrap a series of repositories into a specific structure.
 Intended for use within [Hamlet](https://hamlet.io).
 
-##### Usage
+#### Usage
 
-Bootstrap Hamlet with the following command from a bash terminal. 
+Bootstrap Hamlet with the following command from a bash terminal.
 
 > Warning: the following command will download and install files from GitHub. Only run scripts you trust.
 
@@ -80,7 +80,7 @@ Bootstrap Hamlet with the following command from a bash terminal.
 curl -L https://raw.githubusercontent.com/hamlet-io/hamlet-bootstrap/master/install.sh | bash
 ```
 
-##### Custom Arguments
+#### Custom Arguments
 
 Set the following environment variables prior to to executing the above command to modify behaviour.
 
@@ -104,11 +104,11 @@ export HAMLET_REPO_DEPTH="<depth>"
 export HAMLET_CLONE_ROOT="<path-to-dir>"
 ```
 
-#### **setenv.sh**
+### **setenv.sh**
 
 Inject environment variables into the current shell from an existing config definition.
 
-##### Usage 
+#### Usage
 
 > Warning: the following command will download and install files from GitHub. Only run scripts you trust.
 
